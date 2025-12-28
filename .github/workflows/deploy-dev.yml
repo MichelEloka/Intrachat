@@ -164,6 +164,8 @@ jobs:
           context: services/web-frontend
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.OWNER }}/intrachat-web-frontend:${{ env.TAG }}
+          build-args: |
+            VITE_MODE=dev
 
       # Update GitOps only for changed services
       - name: Update GitOps DEV tags (only changed)

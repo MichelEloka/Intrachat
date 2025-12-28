@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: intrachat-prod-platform
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/MichelEloka/Intrachat.git
+    targetRevision: main
+    path: gitops/env/prod/platform
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

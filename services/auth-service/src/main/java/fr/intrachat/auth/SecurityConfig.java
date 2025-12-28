@@ -31,20 +31,34 @@ public class SecurityConfig {
 
     return http.build();
   }
-//   dfsxdgsghgsfbhfhvfd
+
   @Bean
   CorsConfigurationSource corsConfigurationSource(
-      @Value("${app.cors.allowed-origins:*}") String allowedOrigins) {
+      @Value("${app.cors.allowed-origins:*}") String allowedOrigins,
+      @Value("${app.cors.allow-credentials:false}") boolean allowCredentials) {
     List<String> origins = Arrays.stream(allowedOrigins.split(","))
       .map(String::trim)
       .filter(value -> !value.isEmpty())
       .toList();
-    System.out.println("Allowed originsc for CORS: " + origins);
 
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(origins);
+    if (origins.isEmpty() || origins.contains("*")) {
+      configuration.setAllowedOriginPatterns(List.of("*"));
+    } else if (origins.stream().anyMatch(origin -> origin.contains("*"))) {
+      configuration.setAllowedOriginPatterns(origins);
+    } else {
+      configuration.setAllowedOrigins(origins);
+    }
+    configuration.setAllowCredentials(allowCredentials);
     configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-    configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept", "Origin"));
+    configuration.setAllowedHeaders(List.of(
+      "Authorization",
+      "Content-Type",
+      "Accept",
+      "Origin",
+      "X-Requested-With"
+    ));
+    configuration.setExposedHeaders(List.of("WWW-Authenticate"));
     configuration.setMaxAge(3600L);
 
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
