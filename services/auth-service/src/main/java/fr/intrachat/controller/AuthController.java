@@ -28,6 +28,7 @@ public class AuthController {
       "issuer", jwt.getIssuer().toString()
     );
   }
+  // fjfj
 
   private List<String> extractRealmRoles(Jwt jwt) {
     Map<String, Object> realmAccess = jwt.getClaim("realm_access");
