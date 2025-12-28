@@ -174,14 +174,14 @@ jobs:
             file="$1"
             if [ -f "$file" ]; then
               python3 - "$file" "$TAG" <<'PY'
-import sys, pathlib, re
-p = pathlib.Path(sys.argv[1])
-tag = sys.argv[2]
-s = p.read_text()
-s = re.sub(r"(newTag:\s*).+", r"\1" + tag, s)
-p.write_text(s)
-print("updated", p)
-PY
+          import sys, pathlib, re
+          p = pathlib.Path(sys.argv[1])
+          tag = sys.argv[2]
+          s = p.read_text()
+          s = re.sub(r"(newTag:\s*).+", r"\1" + tag, s)
+          p.write_text(s)
+          print("updated", p)
+          PY
             fi
           }
 
