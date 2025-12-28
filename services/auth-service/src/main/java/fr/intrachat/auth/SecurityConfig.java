@@ -31,7 +31,7 @@ public class SecurityConfig {
 
     return http.build();
   }
-//   salut4vdgvdchjbvfvfvcvshd
+//   d
   @Bean
   CorsConfigurationSource corsConfigurationSource(
       @Value("${app.cors.allowed-origins:*}") String allowedOrigins) {
@@ -39,7 +39,7 @@ public class SecurityConfig {
       .map(String::trim)
       .filter(value -> !value.isEmpty())
       .toList();
-    System.out.println("Allowed origins for CORS: " + origins);
+    System.out.println("Allowed originsc for CORS: " + origins);
 
     CorsConfiguration configuration = new CorsConfiguration();
     configuration.setAllowedOrigins(origins);

@@ -177,13 +177,13 @@ jobs:
             fi
           }
 
-          if [[ "${{ needs.detect-changes.outputs.auth }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/auth-service/kustomization.yaml"; fi
-          if [[ "${{ needs.detect-changes.outputs.user }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/user-service/kustomization.yaml"; fi
-          if [[ "${{ needs.detect-changes.outputs.chat }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/chat-service/kustomization.yaml"; fi
-          if [[ "${{ needs.detect-changes.outputs.ws }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/ws-manager/kustomization.yaml"; fi
-          if [[ "${{ needs.detect-changes.outputs.notif }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/notification-service/kustomization.yaml"; fi
-          if [[ "${{ needs.detect-changes.outputs.media }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/media-service/kustomization.yaml"; fi
-          if [[ "${{ needs.detect-changes.outputs.web }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/web-frontend/kustomization.yaml"; fi
+          if [[ "${{ needs.detect-changes.outputs.auth }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/auth-service/overlay/kustomization.yaml"; fi
+          if [[ "${{ needs.detect-changes.outputs.user }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/user-service/overlay/kustomization.yaml"; fi
+          if [[ "${{ needs.detect-changes.outputs.chat }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/chat-service/overlay/kustomization.yaml"; fi
+          if [[ "${{ needs.detect-changes.outputs.ws }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/ws-manager/overlay/kustomization.yaml"; fi
+          if [[ "${{ needs.detect-changes.outputs.notif }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/notification-service/overlay/kustomization.yaml"; fi
+          if [[ "${{ needs.detect-changes.outputs.media }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/media-service/overlay/kustomization.yaml"; fi
+          if [[ "${{ needs.detect-changes.outputs.web }}" == "true" ]]; then update_newtag "gitops/env/dev/apps/web-frontend/overlay/kustomization.yaml"; fi
 
       - name: Commit GitOps DEV
         run: |
