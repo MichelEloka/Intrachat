@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: auth-service
+  name: keycloak
 spec:
   ingressClassName: traefik
   rules:
-    - host: dev.intrachat.local
+    - host: keycloak.prod.local
       http:
         paths:
-          - path: /api/auth
+          - path: /
             pathType: Prefix
             backend:
               service:
-                name: auth-service
+                name: keycloak
                 port:
                   number: 80
