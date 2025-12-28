@@ -31,7 +31,7 @@ public class SecurityConfig {
 
     return http.build();
   }
-//   salut3
+//   salut4
   @Bean
   CorsConfigurationSource corsConfigurationSource(
       @Value("${app.cors.allowed-origins:*}") String allowedOrigins) {
