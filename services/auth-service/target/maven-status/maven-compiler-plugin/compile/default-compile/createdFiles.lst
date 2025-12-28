@@ -1,1 +1,3 @@
-fr\intrachat\AuthController.class
+fr\intrachat\controller\AuthController.class
+fr\intrachat\AuthServiceApplication.class
+fr\intrachat\auth\SecurityConfig.class

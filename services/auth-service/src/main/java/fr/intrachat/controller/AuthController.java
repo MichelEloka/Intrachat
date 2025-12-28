@@ -1,4 +1,4 @@
-package fr.intrachat;
+package fr.intrachat.controller;
 
 import java.util.Collection;
 import java.util.List;
