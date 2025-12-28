@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: staging
+resources:
+  - ../../../apps/auth-service/base
+  - ../../../apps/chat-service/base
+  - ../../../apps/media-service/base
+  - ../../../apps/notification-service/base
+  - ../../../apps/user-service/base
+  - ../../../apps/web-frontend/base
+  - ../../../apps/ws-manager/base
