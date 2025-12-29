@@ -9,4 +9,4 @@ patchesStrategicMerge:
 images:
   - name: intrachat/web-frontend
     newName: ghcr.io/micheleloka/intrachat-web-frontend
-    newTag: sha-27154fb
+    newTag: latest
