@@ -82,12 +82,12 @@ jobs:
             fi
           }
 
-          [[ "${{ needs.detect-changes.outputs.auth }}" == "true"  ]] && run_maven_tests "auth-service"
-          [[ "${{ needs.detect-changes.outputs.user }}" == "true"  ]] && run_maven_tests "user-service"
-          [[ "${{ needs.detect-changes.outputs.chat }}" == "true"  ]] && run_maven_tests "chat-service"
-          [[ "${{ needs.detect-changes.outputs.ws }}" == "true"    ]] && run_maven_tests "ws-manager"
-          [[ "${{ needs.detect-changes.outputs.notif }}" == "true" ]] && run_maven_tests "notification-service"
-          [[ "${{ needs.detect-changes.outputs.media }}" == "true" ]] && run_maven_tests "media-service"
+          if [[ "${{ needs.detect-changes.outputs.auth }}" == "true" ]]; then run_maven_tests "auth-service"; fi
+          if [[ "${{ needs.detect-changes.outputs.user }}" == "true" ]]; then run_maven_tests "user-service"; fi
+          if [[ "${{ needs.detect-changes.outputs.chat }}" == "true" ]]; then run_maven_tests "chat-service"; fi
+          if [[ "${{ needs.detect-changes.outputs.ws }}" == "true" ]]; then run_maven_tests "ws-manager"; fi
+          if [[ "${{ needs.detect-changes.outputs.notif }}" == "true" ]]; then run_maven_tests "notification-service"; fi
+          if [[ "${{ needs.detect-changes.outputs.media }}" == "true" ]]; then run_maven_tests "media-service"; fi
 
   test-react:
     runs-on: ubuntu-latest
@@ -107,4 +107,9 @@ jobs:
 
       - name: Run React tests
         working-directory: services/web-frontend
-        run: npm test -- --runInBand
+        run: |
+          if node -e "const s=require('./package.json').scripts||{}; process.exit(s.test?0:1)"; then
+            npm test -- --runInBand
+          else
+            echo "No test script defined for web-frontend, skipping tests."
+          fi

@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/MichelEloka/Intrachat.git
     targetRevision: main
-    path: gitops/env/dev/apps
+    path: gitops/env/dev/apps/auth-service/overlay
   destination:
     server: https://kubernetes.default.svc
     namespace: dev

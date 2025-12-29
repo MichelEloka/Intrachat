@@ -88,7 +88,11 @@ jobs:
         working-directory: services/web-frontend
         run: |
           npm ci
-          npm test -- --runInBand
+          if node -e "const s=require('./package.json').scripts||{}; process.exit(s.test?0:1)"; then
+            npm test -- --runInBand
+          else
+            echo "No test script defined for web-frontend, skipping tests."
+          fi
 
   build-push-and-update-gitops:
     runs-on: ubuntu-latest
