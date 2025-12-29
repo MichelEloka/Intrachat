@@ -5,8 +5,11 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: ghcr-credentials
       containers:
         - name: auth-service
+          image: ghcr.io/micheleloka/intrachat-auth-service:sha-46682ac
           env:
             - name: KEYCLOAK_ISSUER_URI
               value: http://keycloak.dev.local/realms/intrachat
