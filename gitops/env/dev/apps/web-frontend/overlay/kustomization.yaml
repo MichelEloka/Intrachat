@@ -4,3 +4,9 @@ namespace: dev
 resources:
   - ../../../../../apps/web-frontend/base
   - Ingress.yaml
+patchesStrategicMerge:
+  - deployment-patch.yaml
+images:
+  - name: intrachat/web-frontend
+    newName: ghcr.io/micheleloka/intrachat-web-frontend
+    newTag: sha-27154fb

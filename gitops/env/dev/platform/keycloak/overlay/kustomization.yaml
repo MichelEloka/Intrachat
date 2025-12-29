@@ -7,3 +7,5 @@ resources:
   - Ingress.yaml
   - secret-admin.yaml
   - secret-db.yaml
+patchesStrategicMerge:
+  - deployment-patch.yaml
