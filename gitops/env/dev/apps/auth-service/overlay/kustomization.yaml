@@ -7,3 +7,7 @@ resources:
   - Ingress.yaml
 patchesStrategicMerge:
   - deployment-patch.yaml
+images:
+  - name: intrachat/auth-service
+    newName: ghcr.io/micheleloka/intrachat-auth-service
+    newTag: latest
