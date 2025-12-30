@@ -9,3 +9,12 @@ resources:
   - ./user-service/overlay
   - ./web-frontend/overlay
   - ./ws-manager/overlay
+images:
+  - name: intrachat/web-frontend
+    newName: ghcr.io/micheleloka/intrachat-web-frontend
+    newTag: latest
+    digest: sha256:116a0b983967905692693483ab510917ac8d03a5311b93ecb3abb1558a003dd1
+  - name: intrachat/auth-service
+    newName: ghcr.io/micheleloka/intrachat-auth-service
+    newTag: latest
+    digest: sha256:31b4bd6f15929157fb20865c7822d7d03b60be10e0efe959d42d03351f796016
