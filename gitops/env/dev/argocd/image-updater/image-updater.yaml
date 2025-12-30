@@ -13,7 +13,7 @@ spec:
     gitConfig:
       branch: "main"
       repository: "https://github.com/MichelEloka/Intrachat.git"
-      writeBackTarget: "kustomization:./gitops/env/dev/apps"
+      writeBackTarget: "kustomization:."
   applicationRefs:
     - namePattern: "intrachat-dev"
       images:
