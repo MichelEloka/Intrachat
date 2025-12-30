@@ -13,13 +13,13 @@ spec:
           startupProbe:
             httpGet:
               path: /auth/health/ready
-              port: http
+              port: 9000
             failureThreshold: 60
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /auth/health/ready
-              port: http
+              port: 9000
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
@@ -27,7 +27,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /auth/health/live
-              port: http
+              port: 9000
             initialDelaySeconds: 90
             periodSeconds: 15
             timeoutSeconds: 5
