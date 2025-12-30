@@ -9,7 +9,11 @@ spec:
     updateStrategy: "digest"
     pullSecret: "pullsecret:argocd/ghcr-credentials"
   writeBackConfig:
-    method: "argocd"
+    method: "git"
+    gitConfig:
+      branch: "main"
+      repository: "https://github.com/MichelEloka/Intrachat.git"
+      writeBackTarget: "kustomization:./gitops/env/dev/apps"
   applicationRefs:
     - namePattern: "intrachat-dev"
       images:
