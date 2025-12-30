@@ -4,3 +4,7 @@ namespace: dev
 resources:
   - ../../../../../apps/chat-service/base
   - Ingress.yaml
+images:
+  - name: intrachat/chat-service
+    newName: ghcr.io/micheleloka/intrachat-chat-service
+    newTag: latest

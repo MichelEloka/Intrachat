@@ -1,0 +1,24 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: intrachat-dev-image-updater-media-service
+  namespace: argocd
+spec:
+  namespace: argocd
+  commonUpdateSettings:
+    updateStrategy: "digest"
+    pullSecret: "pullsecret:argocd/ghcr-credentials"
+  writeBackConfig:
+    method: "git"
+    gitConfig:
+      branch: "main"
+      repository: "https://github.com/MichelEloka/Intrachat.git"
+      writeBackTarget: "kustomization:./media-service/overlay"
+  applicationRefs:
+    - namePattern: "intrachat-dev"
+      images:
+        - alias: "mediaservice"
+          imageName: "ghcr.io/micheleloka/intrachat-media-service:latest"
+          manifestTargets:
+            kustomize:
+              name: "intrachat/media-service"

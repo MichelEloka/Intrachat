@@ -4,3 +4,7 @@ namespace: dev
 resources:
   - ../../../../../apps/notification-service/base
   - Ingress.yaml
+images:
+  - name: intrachat/notification-service
+    newName: ghcr.io/micheleloka/intrachat-notification-service
+    newTag: latest

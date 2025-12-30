@@ -3,4 +3,10 @@ kind: Kustomization
 namespace: argocd
 resources:
   - install.yaml
-  - image-updater.yaml
+  - image-updater-web-frontend.yaml
+  - image-updater-auth-service.yaml
+  - image-updater-chat-service.yaml
+  - image-updater-media-service.yaml
+  - image-updater-notification-service.yaml
+  - image-updater-user-service.yaml
+  - image-updater-ws-manager.yaml

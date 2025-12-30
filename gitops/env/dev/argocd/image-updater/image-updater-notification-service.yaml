@@ -1,0 +1,24 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: intrachat-dev-image-updater-notification-service
+  namespace: argocd
+spec:
+  namespace: argocd
+  commonUpdateSettings:
+    updateStrategy: "digest"
+    pullSecret: "pullsecret:argocd/ghcr-credentials"
+  writeBackConfig:
+    method: "git"
+    gitConfig:
+      branch: "main"
+      repository: "https://github.com/MichelEloka/Intrachat.git"
+      writeBackTarget: "kustomization:./notification-service/overlay"
+  applicationRefs:
+    - namePattern: "intrachat-dev"
+      images:
+        - alias: "notificationservice"
+          imageName: "ghcr.io/micheleloka/intrachat-notification-service:latest"
+          manifestTargets:
+            kustomize:
+              name: "intrachat/notification-service"

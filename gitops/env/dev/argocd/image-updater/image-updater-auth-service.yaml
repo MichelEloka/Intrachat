@@ -1,7 +1,7 @@
 apiVersion: argocd-image-updater.argoproj.io/v1alpha1
 kind: ImageUpdater
 metadata:
-  name: intrachat-dev-image-updater
+  name: intrachat-dev-image-updater-auth-service
   namespace: argocd
 spec:
   namespace: argocd
@@ -13,15 +13,10 @@ spec:
     gitConfig:
       branch: "main"
       repository: "https://github.com/MichelEloka/Intrachat.git"
-      writeBackTarget: "kustomization:."
+      writeBackTarget: "kustomization:./auth-service/overlay"
   applicationRefs:
     - namePattern: "intrachat-dev"
       images:
-        - alias: "webfrontend"
-          imageName: "ghcr.io/micheleloka/intrachat-web-frontend:latest"
-          manifestTargets:
-            kustomize:
-              name: "intrachat/web-frontend"
         - alias: "authservice"
           imageName: "ghcr.io/micheleloka/intrachat-auth-service:latest"
           manifestTargets:

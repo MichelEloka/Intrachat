@@ -1,0 +1,24 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: intrachat-dev-image-updater-web-frontend
+  namespace: argocd
+spec:
+  namespace: argocd
+  commonUpdateSettings:
+    updateStrategy: "digest"
+    pullSecret: "pullsecret:argocd/ghcr-credentials"
+  writeBackConfig:
+    method: "git"
+    gitConfig:
+      branch: "main"
+      repository: "https://github.com/MichelEloka/Intrachat.git"
+      writeBackTarget: "kustomization:./web-frontend/overlay"
+  applicationRefs:
+    - namePattern: "intrachat-dev"
+      images:
+        - alias: "webfrontend"
+          imageName: "ghcr.io/micheleloka/intrachat-web-frontend:latest"
+          manifestTargets:
+            kustomize:
+              name: "intrachat/web-frontend"
