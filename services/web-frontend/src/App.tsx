@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 export default function App() {
   const { keycloak, initialized } = useKeycloak();
 
-  if (!initialized) return <div color="green">mmmmmmmmmmmmmmmmMMgEloka pending to connect keycloakmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm...</div>;
+  if (!initialized) return <div color="green">mmmmmmmmmmmmmmmmMkMgEloka pending to connect keycloakmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm...</div>;
   if (!keycloak.authenticated) return <Login />;
 // sscsdfdfdf
   return <Home />;
