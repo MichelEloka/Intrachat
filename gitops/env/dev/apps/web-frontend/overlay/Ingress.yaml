@@ -15,3 +15,12 @@ spec:
                 name: web-frontend
                 port:
                   number: 80
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-frontend
+                port:
+                  number: 80
