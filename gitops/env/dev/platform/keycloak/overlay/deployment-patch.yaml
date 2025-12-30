@@ -7,6 +7,9 @@ spec:
     spec:
       containers:
         - name: keycloak
+          env:
+            - name: KC_HTTP_RELATIVE_PATH
+              value: /auth
           startupProbe:
             httpGet:
               path: /health/ready

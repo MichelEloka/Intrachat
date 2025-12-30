@@ -11,6 +11,6 @@ spec:
         - name: auth-service
           env:
             - name: KEYCLOAK_ISSUER_URI
-              value: http://keycloak.dev.local/realms/intrachat
+              value: http://172.31.253.146/auth/realms/intrachat
             - name: APP_CORS_ALLOWED_ORIGINS
-              value: http://dev.intrachat.local,http://localhost:5173
+              value: http://dev.intrachat.local,http://172.31.253.146,http://localhost:5173

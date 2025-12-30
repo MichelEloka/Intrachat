@@ -8,7 +8,16 @@ spec:
     - host: keycloak.dev.local
       http:
         paths:
-          - path: /
+          - path: /auth
+            pathType: Prefix
+            backend:
+              service:
+                name: keycloak
+                port:
+                  number: 80
+    - http:
+        paths:
+          - path: /auth
             pathType: Prefix
             backend:
               service:
