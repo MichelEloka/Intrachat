@@ -22,3 +22,5 @@ spec:
           manifestTargets:
             kustomize:
               name: "intrachat/auth-service"
+              
+
