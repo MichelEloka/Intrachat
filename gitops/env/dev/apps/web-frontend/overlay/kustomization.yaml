@@ -10,4 +10,4 @@ images:
   - name: intrachat/web-frontend
     newName: ghcr.io/micheleloka/intrachat-web-frontend
     newTag: latest
-    digest: sha256:3d313ffc6aeedcc325d844cc24a845c9dd74165ec97e50f5893598e784cca667
+    digest: sha256:e26ea4ecb599e61616867ffad8f4a63dff658328eff843ca3eeb3c5c4f2e1932
