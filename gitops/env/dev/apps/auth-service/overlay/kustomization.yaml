@@ -10,4 +10,5 @@ patchesStrategicMerge:
 images:
   - name: intrachat/auth-service
     newName: ghcr.io/micheleloka/intrachat-auth-service
-    newTag: sha-46682ac
+    newTag: latest
+    digest: sha256:31b4bd6f15929157fb20865c7822d7d03b60be10e0efe959d42d03351f796016
