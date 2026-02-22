@@ -64,20 +64,28 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+          startupProbe:
+            httpGet:
+              path: /health/ready
+              port: http
+            failureThreshold: 60
+            periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /health/ready
               port: http
-            initialDelaySeconds: 20
+            initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
+            failureThreshold: 6
           livenessProbe:
             httpGet:
               path: /health/live
               port: http
-            initialDelaySeconds: 40
+            initialDelaySeconds: 90
             periodSeconds: 15
             timeoutSeconds: 5
+            failureThreshold: 4
           resources:
             requests:
               cpu: 250m
