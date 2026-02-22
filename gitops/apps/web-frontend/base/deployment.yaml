@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: web-frontend
-          image: intrachat/web-frontend:latest
+          image: ghcr.io/micheleloka/intrachat-web-frontend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: intrachat/auth-service:latest
+          image: ghcr.io/micheleloka/intrachat-auth-service:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
