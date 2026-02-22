@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: dev
 resources:
   - ../../../../../apps/auth-service/base
-  - namespace.yaml
   - Ingress.yaml
 patchesStrategicMerge:
   - deployment-patch.yaml
